@@ -25,8 +25,8 @@ import { getDeliveryDate, getDiscount } from '../../utils/functions';
 import { addToWishlist, removeFromWishlist } from '../../redux/actions/wishlistAction';
 import MinCategory from '../Layouts/MinCategory';
 import MetaData from '../Layouts/MetaData';
-import { NextBtn, PreviousBtn } from '../home/Banner/Banner';
-import ProductSlider from '../home/ProductSlider/ProductSlider';
+import { NextBtn, PreviousBtn } from '../Home/Banner/Banner';
+import ProductSlider from '../Home/ProductSlider/ProductSlider';
 
 const ProductDetails = () => {
 
