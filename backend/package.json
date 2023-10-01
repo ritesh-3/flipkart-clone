@@ -4,14 +4,10 @@
   "description": "Full Stack Flipkart Ecommerce",
   "main": "backend/server.js",
   "scripts": {
-    "start": "node server.js",
-    "inspect":"node --inspect-brk server.js ",
-    "server": "nodemon server.js",
-    "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "render-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "node index.js",
+    "inspect":"node --inspect-brk index.js ",
+    "server": "nodemon index.js"
   },
-  "author": "Jigar Sable",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
