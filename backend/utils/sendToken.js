@@ -7,6 +7,7 @@ const sendToken = (user, statusCode, res) => {
         ),
         httpOnly: true,
         sameSite: 'None',
+        secure: true,  //secure is mandatory for enabling sameSite none attribute
     }
 
     res.status(statusCode).cookie('token', token, options).json({
