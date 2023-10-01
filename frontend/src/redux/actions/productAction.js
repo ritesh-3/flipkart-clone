@@ -32,6 +32,7 @@ import {
     SLIDER_PRODUCTS_SUCCESS,
     SLIDER_PRODUCTS_FAIL,
 } from "../../constants/productConstants";
+import { ErrorMsgs } from "../../constants/data";
 
 // Get All Products --- Filter/Search/Sort
 export const getProducts =
@@ -128,7 +129,7 @@ export const getSliderProducts = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: SLIDER_PRODUCTS_FAIL,
-            payload: error.response.data.message,
+            payload: (error && error.response && error.response.data) ? error.response.data.message : "",
         });
     }
 };

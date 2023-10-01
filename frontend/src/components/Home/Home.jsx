@@ -20,9 +20,12 @@ const Home = () => {
       enqueueSnackbar(error, { variant: "error" });
       dispatch(clearErrors());
     }
-    dispatch(getSliderProducts());
+
   }, [dispatch, error, enqueueSnackbar]);
 
+  useEffect(() => {
+    dispatch(getSliderProducts());
+  }, [])
   return (
     <>
       {/* <MetaData title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!" /> */}

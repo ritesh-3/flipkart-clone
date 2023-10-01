@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import OfflineBoltIcon from '@mui/icons-material/OfflineBolt';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -14,17 +14,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSnackbar } from 'notistack';
 import { Menu, MenuItem } from '@mui/material';
-// import { logoutUser } from '../../../actions/userAction';
+import { logoutUser } from '../../../redux/actions/userAction';
 
 const PrimaryDropDownMenu = ({  user, anchorEl, handleClose, open }) => {
 
     const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
+    const dispatch = useDispatch();
 
     const { wishlistItems } = useSelector((state) => state.wishlist);
 
     const handleLogout = () => {
-        // dispatch(logoutUser());
+        dispatch(logoutUser());
         navigate("/login");
         enqueueSnackbar("Logout Successfully", { variant: "success" });
     }

@@ -1,3 +1,4 @@
+import { ErrorMsgs } from '../../constants/data';
 import {
     LOGIN_USER_REQUEST,
     LOGIN_USER_SUCCESS,
@@ -116,7 +117,7 @@ export const loadUser = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: LOAD_USER_FAIL,
-            payload: error.response.data.message,
+            payload: (error && error.response && error.response.data) ? error.response.data.message : ErrorMsgs.GENERIC_ERROR_MESSAGE,
         });
     }
 };
