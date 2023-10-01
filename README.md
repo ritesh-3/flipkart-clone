@@ -34,8 +34,7 @@ This is a full-stack Flipkart clone application built using the MERN stack. It i
   - Redux for State Management (Admin)
   - Axios for API Requests (Admin)
 - **Deployment:**
-  - Heroku (Backend)
-  - Netlify (Frontend)
+  - Vercel
 
 ## Demo
-You can access the live demo of this application at [Demo URL Here](https://your-demo-url.com).
+You can access the live demo of this application at [HERE](https://flipkart-clone-client-nine.vercel.app/).
