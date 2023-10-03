@@ -29,7 +29,7 @@ const Product = ({ _id, name, images, ratings, numOfReviews, price, cuttedPrice 
         <div className="flex flex-col items-start gap-2 px-4 py-6 relative hover:shadow-lg rounded-sm">
             {/* <!-- image & product title --> */}
             <Link to={`/product/${_id}`} className="flex flex-col items-center text-center group">
-                <div className="w-44 h-48">
+                <div className="sm:w-44 sm:h-48">
                     <img draggable="false" className="w-full h-full object-contain" src={images && images[0].url} alt="" />
                 </div>
                 <h2 className="text-sm mt-4 group-hover:text-primary-blue text-left">{name.length > 85 ? `${name.substring(0, 85)}...` : name}</h2>

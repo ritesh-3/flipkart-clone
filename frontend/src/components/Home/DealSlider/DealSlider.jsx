@@ -27,14 +27,18 @@ export const settings = {
             breakpoint: 600,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2
+                slidesToScroll: 2,
+                prevArrow: null,
+                nextArrow: null,
             }
         },
         {
             breakpoint: 480,
             settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                prevArrow: null,
+                nextArrow: null,
             }
         }
     ]

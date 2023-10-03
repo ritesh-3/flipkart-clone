@@ -30,7 +30,7 @@ const OrderSuccess = ({ success }) => {
         <>
             <MetaData title={`Transaction ${success ? "Successfull" : "Failed"}`} />
 
-            <main className="w-full mt-20">
+            <main className="w-full mt-2">
 
                 {/* <!-- row --> */}
                 <div className="flex flex-col gap-2 items-center justify-center sm:w-4/6 sm:mt-4 m-auto mb-7 bg-white shadow rounded p-6 pb-12">

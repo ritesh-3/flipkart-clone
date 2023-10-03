@@ -54,8 +54,8 @@ const ProductDetails = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        prevArrow: <PreviousBtn />,
-        nextArrow: <NextBtn />,
+        // prevArrow: <PreviousBtn />,
+        // nextArrow: <NextBtn />,
     };
 
     const productId = params.id;
@@ -131,7 +131,7 @@ const ProductDetails = () => {
                 <>
                     <MetaData title={product.name} />
                     {/* <MinCategory /> */}
-                    <main className="mt-12 sm:mt-0">
+                    <main className="">
 
                         {/* <!-- product image & description container --> */}
                         <div className="w-full flex flex-col sm:flex-row bg-white sm:p-2 relative">

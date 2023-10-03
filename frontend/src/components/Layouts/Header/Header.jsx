@@ -47,7 +47,7 @@ const Header = () => {
         <div className="flex items-center justify-between ml-1 sm:ml-0 gap-0.5 sm:gap-7 relative">
 
           {isAuthenticated === false ?
-            <Link to="/login" className="px-3 sm:px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</Link>
+            <Link to="/login" className="px-3 sm:px-9 py-0.5 text-white sm:text-primary-blue sm:bg-white sm:border font-medium rounded-sm cursor-pointer">Login</Link>
             :
             (
               <button

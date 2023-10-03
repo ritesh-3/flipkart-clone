@@ -5,8 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 12px rgba(0,0,0,.2);
-    background: #fcfcfc;
+    /* box-shadow: 0 8px 12px rgba(0,0,0,.2); */
+    /* background: #fcfcfc; */
     color: #000;
     z-index: 1;
 }

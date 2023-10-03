@@ -37,8 +37,8 @@ const Banner = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: <PreviousBtn  className={"text-xs"} />,
-    nextArrow: <NextBtn />,
+    prevArrow: <PreviousBtn />,
+    nextArrow: <NextBtn/>,
   };
 
   const banners = [gadgetSale, kitchenSale, poco, fashionSale, realme, oppo];
