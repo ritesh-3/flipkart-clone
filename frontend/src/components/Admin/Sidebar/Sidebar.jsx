@@ -70,7 +70,7 @@ const Sidebar = ({ activeTab, setToggleSidebar }) => {
         navigate("/login");
     }
 
-    if (!user) return (
+    if (!user || !user.avatar) return (
         <>Loading...</>
     )
     return (
