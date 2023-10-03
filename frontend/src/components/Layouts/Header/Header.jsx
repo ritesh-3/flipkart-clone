@@ -34,8 +34,8 @@ const Header = () => {
       {/* <!-- navbar container --> */}
       <div className="w-full sm:w-9/12 px-1 sm:px-4 m-auto flex justify-between items-center relative">
         {/* <!-- logo & search container --> */}
-        <div className="flex items-center flex-1">
-          <Link className="h-7 mr-1 sm:mr-4" to="/">
+        <div className="flex items-center justify-center flex-1 w-3/5 gap-3">
+          <Link className="h-5 sm:h-8 mr-1 sm:mr-4" to="/">
             <img draggable="false" className="h-full w-full object-contain" src={logo} alt="Flipkart Logo" />
           </Link>
 
@@ -44,7 +44,7 @@ const Header = () => {
         {/* <!-- logo & search container --> */}
 
         {/* <!-- right navs --> */}
-        <div className="flex items-center justify-between ml-1 sm:ml-0 gap-0.5 sm:gap-7 relative">
+        <div className="flex items-center justify-center gap-3  w-2/5">
 
           {isAuthenticated === false ?
             <Link to="/login" className="px-3 sm:px-9 py-0.5 text-white sm:text-primary-blue sm:bg-white sm:border font-medium rounded-sm cursor-pointer">Login</Link>
@@ -56,7 +56,7 @@ const Header = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 className="userDropDown flex items-center text-white font-medium  cursor-pointer" onClick={handleClick} >
-                {user.name && user.name.split(" ", 1)} <ExpandMoreIcon  sx={{ fontSize: "16px" }}  />
+                {user.name && user.name.split(" ", 1)} <ExpandMoreIcon sx={{ fontSize: "16px" }} />
               </button>
             )
           }
@@ -72,7 +72,6 @@ const Header = () => {
           </span>
 
           {toggleSecondaryDropDown && <SecondaryDropDownMenu />} */}
-
           <Link to="/cart" className="flex items-center text-white font-medium gap-2 relative">
             <span><ShoppingCartIcon /></span>
             {cartItems.length > 0 &&
@@ -80,7 +79,7 @@ const Header = () => {
                 {cartItems.length}
               </div>
             }
-
+            {window.innerWidth > 468 && "Cart"}
           </Link>
         </div>
         {/* <!-- right navs --> */}
