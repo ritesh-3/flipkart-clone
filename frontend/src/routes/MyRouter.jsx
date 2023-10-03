@@ -9,6 +9,7 @@ import Dashboard from '../components/Admin/Dashboard';
 const Login = lazy(() => import('../components/User/Login'));
 const Register = lazy(() => import('../components/User/Register'));
 const ForgotPassword = lazy(() => import('../components/User/ForgotPassword'));
+const ResetPassword = lazy(() => import('../components/User/ResetPassword'));
 const ProductDetails = lazy(() => import('../components/ProductDetails/ProductDetails'));
 const Products = lazy(() => import('../components/Products/Products'));
 const Cart = lazy(() => import('../components/Cart/Cart'));
@@ -50,6 +51,7 @@ const MyRouter = () => {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/password/forgot' element={<ForgotPassword />} />
+                <Route path="/password/reset/:token" element={<ResetPassword />} />
                 <Route path='//product/:id' element={<ProductDetails />} />
                 <Route path='/products' element={<Products />} />
                 <Route path='/products/:keyword' element={<Products />} />

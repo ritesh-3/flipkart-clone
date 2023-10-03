@@ -1,6 +1,7 @@
 const asyncErrorHandler = require('../middlewares/asyncErrorHandler');
 const Order = require('../models/orderModel');
 const Product = require('../models/productModel');
+const emailTemplate = require('../utils/emailTemplates');
 const ErrorHandler = require('../utils/errorHandler');
 const sendEmail = require('../utils/sendEmail');
 
@@ -28,17 +29,19 @@ exports.newOrder = asyncErrorHandler(async (req, res, next) => {
         paidAt: Date.now(),
         user: req.user._id,
     });
-
+    const data = {
+        name: req.user.name,
+        shippingInfo,
+        orderItems,
+        totalPrice,
+        oid: order._id,
+        orderDetailsUrl: `${process.env.CLIENT_URL}/order_details/${order._id}`
+    }
     await sendEmail({
         email: req.user.email,
-        templateId: process.env.SENDGRID_ORDER_TEMPLATEID,
-        data: {
-            name: req.user.name,
-            shippingInfo,
-            orderItems,
-            totalPrice,
-            oid: order._id,
-        }
+        subject: "Flipkart Clone Order Confirmation",
+        html: emailTemplate.orderDetails(data)
+
     });
 
     res.status(201).json({

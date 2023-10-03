@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import WorkIcon from '@mui/icons-material/Work';
 import StarsIcon from '@mui/icons-material/Stars';
+import MailIcon from '@mui/icons-material/Mail';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import HelpIcon from '@mui/icons-material/Help';
 import paymentMethods from '../../../assets/images/payment-methods.svg';
@@ -158,15 +159,15 @@ const Footer = () => {
           </footer>
           {/* <!-- footer ends --> */}
 
-          <div className="px-16 py-6 w-full bg-primary-darkBlue  flex justify-between items-center text-sm text-white">
-      
-            <a href=""  rel="noreferrer" className="flex items-center gap-2">
+          <div className=" px-2 sm:px-16 py-6 w-full bg-primary-darkBlue  flex justify-between items-center text-sm text-white">
+
+            <a href="" rel="noreferrer" className="flex items-center gap-2">
               <span className="text-yellow-400"><StarsIcon sx={{ fontSize: "20px" }} /></span> Developed by Ritesh
             </a>
-            <a href="" rel="noreferrer"  className="hidden sm:flex items-center gap-2">
-              <span className="text-yellow-400"><CardGiftcardIcon sx={{ fontSize: "20px" }} /></span> Gift Cards
+            <a href="" rel="noreferrer" className="flex items-center gap-2">
+              <span className="text-yellow-400"><MailIcon sx={{ fontSize: "20px" }} /></span>ritesh81269@gmail.com
             </a>
-            <a href=""  className="hidden sm:flex items-center gap-2">
+            <a href="" className="hidden sm:flex items-center gap-2">
               <span className="text-yellow-400"><HelpIcon sx={{ fontSize: "20px" }} /></span> Help Center
             </a>
           </div>
