@@ -61,7 +61,7 @@ const Sidebar = ({ activeTab }) => {
                 </div>
                 <div className="flex flex-col pb-3 border-b text-sm">
                     <Link to="/account" className={`${activeTab === "profile" ? "bg-blue-50 text-primary-blue font-medium" : "hover:bg-blue-50 hover:text-primary-blue"} p-3 pl-14`}>Profile Information</Link>
-                    <Link className="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" to="/">Manage Addresses</Link>
+                    <Link className="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" to="/shipping">Manage Addresses</Link>
                     <Link className="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" to="/account/update">Update Profile</Link>
                     <Link className="p-3 pl-14 hover:bg-blue-50 hover:text-primary-blue" to="/password/update">Change Password</Link>
 

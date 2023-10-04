@@ -174,7 +174,7 @@ const ProductTable = () => {
                 <DataGrid
                     rows={rows}
                     columns={columns}
-                    pageSize={10}
+                    autoPageSize
                     disableSelectIconOnClick
                     sx={{
                         boxShadow: 0,

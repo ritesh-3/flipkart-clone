@@ -8,7 +8,7 @@ const OrderItem = (props) => {
     const { orderId, name, image, price, quantity, createdAt, deliveredAt, orderStatus } = props;
 
     return (
-        <Link to={`/order_details/${orderId}`} className="flex p-4 items-start bg-white border rounded gap-2 sm:gap-0 hover:shadow-lg">
+        <Link to={`/order_details/${orderId}`} className="flex  p-4 w-full items-start bg-white border rounded gap-2 sm:gap-0 hover:shadow-lg">
             {/* <!-- image container --> */}
             <div className="w-full sm:w-32 h-20">
                 <img draggable="false" className="h-full w-full object-contain" src={image} alt={name} />
