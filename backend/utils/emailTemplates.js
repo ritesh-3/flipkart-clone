@@ -84,13 +84,11 @@ const emailTemplate = {
                 </div>
                 `).join('')}
             </div>
-
             <h2>Total Price: ₹${data.totalPrice}</h2>
-
+            <a class="button" href="${data.orderDetailsUrl}" target="_blank">View Order Details</a>
             <p>Thank you for shopping with us!</p>
             <p>If you have any questions or need assistance, please feel free to contact us.</p>
-
-            <a class="button" href="${data.orderDetailsUrl}" target="_blank">View Order Details</a>
+            <p>Best regards,<br>Ritesh 😊</p>
         </div>
     </div>
 </body>

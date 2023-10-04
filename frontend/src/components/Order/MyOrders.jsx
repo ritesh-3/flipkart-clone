@@ -220,7 +220,7 @@ const MyOrders = () => {
                                     }
                                 </div>
                                 {/* <!-- searchbar --> */}
-                                <div className='min-h-[62vh] flex bg-white'>
+                                <div className='min-h-[62vh]  flex-col bg-white'>
                                     {orders && filteredOrders.length === 0 && (
                                         <div className="flex items-center flex-col gap-2 p-8 m-auto">
                                             <img draggable="false" src="https://rukminim1.flixcart.com/www/100/100/promos/23/08/2020/c5f14d2a-2431-4a36-b6cb-8b5b5e283d4f.png" alt="Empty Orders" />
