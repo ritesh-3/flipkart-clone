@@ -12,7 +12,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import MinCategory from '../Layouts/MinCategory';
 import MetaData from '../Layouts/MetaData';
-import { useFetcher } from 'react-router-dom';
+import FilterListOffIcon from '@mui/icons-material/FilterListOff';
 
 const orderStatus = ["Processing", "Shipped", "Delivered"];
 const dt = new Date();
@@ -214,7 +214,7 @@ const MyOrders = () => {
                                     {
                                         window.innerWidth < 468 && (
                                             <button className='text-blue-600 px-4' onClick={() => setToggleFilter(!toggleFilter)}>
-                                                <FilterListIcon sx={{ fontSize: '30px' }} />
+                                                {toggleFilter ? <FilterListOffIcon sx={{ fontSize: '30px' }} /> : <FilterListIcon sx={{ fontSize: '30px' }} />} 
                                             </button>
                                         )
                                     }

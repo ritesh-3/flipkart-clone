@@ -19,6 +19,8 @@ import { categories } from '../../utils/constants';
 import MetaData from '../Layouts/MetaData';
 // import { getRandomProducts } from '../../utils/';
 import { useLocation } from 'react-router-dom';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import FilterListOffIcon from '@mui/icons-material/FilterListOff';
 
 const Products = () => {
 
@@ -27,6 +29,7 @@ const Products = () => {
     const params = useParams();
     const location = useLocation();
 
+    const [toggleFilter, setToggleFilter] = useState(false);
     const [price, setPrice] = useState([0, 200000]);
     const [category, setCategory] = useState(location.search ? location.search.split("=")[1] : "");
     const [ratings, setRatings] = useState(0);
@@ -67,111 +70,128 @@ const Products = () => {
             <main className="w-full ">
 
                 {/* <!-- row --> */}
-                <div className="flex gap-3 mt-3 sm:mt-2 sm:mx-3 m-auto mb-7">
-
+                <div>
+                    {
+                        window.innerWidth < 468 && (
+                            <button className='text-blue-600 m-4' onClick={() => setToggleFilter(!toggleFilter)}>
+                                <span className='text-lg mx-3 font-bold'>Filter</span>
+                                {toggleFilter ? <FilterListOffIcon sx={{ fontSize: '30px' }} /> : <FilterListIcon sx={{ fontSize: '30px' }} />} 
+                            </button>
+                        )
+                    }
                     {/* <!-- sidebar column  --> */}
-                    <div className="hidden sm:flex flex-col w-1/5 px-1">
+                    {(toggleFilter || window.innerWidth > 468) && (
+                        <div className="flex flex-col sm:w-1/5 px-1">
 
-                        {/* <!-- nav tiles --> */}
-                        <div className="flex flex-col bg-white rounded-sm shadow">
+                            {/* <!-- nav tiles --> */}
+                            <div className="flex flex-col bg-white rounded-sm shadow">
 
-                            {/* <!-- filters header --> */}
-                            <div className="flex items-center justify-between gap-5 px-4 py-2 border-b">
-                                <p className="text-lg font-medium">Filters</p>
-                                <span className="uppercase text-primary-blue text-xs cursor-pointer font-medium" onClick={() => clearFilters()}>clear all</span>
-                            </div>
-
-                            <div className="flex flex-col gap-2 py-3 text-sm overflow-hidden">
-
-                                {/* price slider filter */}
-                                <div className="flex flex-col gap-2 border-b px-4">
-                                    <span className="font-medium text-xs">PRICE</span>
-
-                                    <Slider
-                                        value={price}
-                                        onChange={priceHandler}
-                                        valueLabelDisplay="auto"
-                                        getAriaLabel={() => 'Price range slider'}
-                                        min={0}
-                                        max={200000}
-                                    />
-
-                                    <div className="flex gap-3 items-center justify-between mb-2 min-w-full">
-                                        <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">₹{price[0].toLocaleString()}</span>
-                                        <span className="font-medium text-gray-400">to</span>
-                                        <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">₹{price[1].toLocaleString()}</span>
-                                    </div>
+                                {/* <!-- filters header --> */}
+                                <div className="flex items-center justify-between gap-5 px-4 py-2 border-b">
+                                    <p className="text-lg font-medium">Filters</p>
+                                    <span className="uppercase text-primary-blue text-xs cursor-pointer font-medium" onClick={() => clearFilters()}>clear all</span>
                                 </div>
-                                {/* price slider filter */}
 
-                                {/* category filter */}
-                                <div className="flex flex-col border-b px-4">
+                                <div className="flex flex-col gap-2 py-3 text-sm overflow-hidden">
 
-                                    <div className="flex justify-between cursor-pointer py-2 pb-4 items-center" onClick={() => setCategoryToggle(!categoryToggle)}>
-                                        <p className="font-medium text-xs uppercase">Category</p>
-                                        {categoryToggle ?
-                                            <ExpandLessIcon sx={{ fontSize: "20px" }} /> :
-                                            <ExpandMoreIcon sx={{ fontSize: "20px" }} />
-                                        }
-                                    </div>
+                                    {/* price slider filter */}
+                                    <div className="flex flex-col gap-2 border-b px-4">
+                                        <span className="font-medium text-xs">PRICE</span>
 
-                                    {categoryToggle && (
-                                        <div className="flex flex-col pb-1">
-                                            <FormControl>
-                                                <RadioGroup
-                                                    aria-labelledby="category-radio-buttons-group"
-                                                    onChange={(e) => setCategory(e.target.value)}
-                                                    name="category-radio-buttons"
-                                                    value={category}
-                                                >
-                                                    {categories.map((el, i) => (
-                                                        <FormControlLabel value={el} control={<Radio size="small" />} label={<span className="text-sm" key={i}>{el}</span>} />
-                                                    ))}
-                                                </RadioGroup>
-                                            </FormControl>
+                                        <Slider
+                                            value={price}
+                                            onChange={priceHandler}
+                                            valueLabelDisplay="auto"
+                                            getAriaLabel={() => 'Price range slider'}
+                                            min={0}
+                                            max={200000}
+                                        />
+
+                                        <div className="flex gap-3 items-center justify-between mb-2 min-w-full">
+                                            <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">₹{price[0].toLocaleString()}</span>
+                                            <span className="font-medium text-gray-400">to</span>
+                                            <span className="flex-1 border px-4 py-1 rounded-sm text-gray-800 bg-gray-50">₹{price[1].toLocaleString()}</span>
                                         </div>
-                                    )}
-
-                                </div>
-                                {/* category filter */}
-
-                                {/* ratings filter */}
-                                <div className="flex flex-col border-b px-4">
-
-                                    <div className="flex justify-between cursor-pointer py-2 pb-4 items-center" onClick={() => setRatingsToggle(!ratingsToggle)}>
-                                        <p className="font-medium text-xs uppercase">ratings</p>
-                                        {ratingsToggle ?
-                                            <ExpandLessIcon sx={{ fontSize: "20px" }} /> :
-                                            <ExpandMoreIcon sx={{ fontSize: "20px" }} />
-                                        }
                                     </div>
+                                    {/* price slider filter */}
 
-                                    {ratingsToggle && (
-                                        <div className="flex flex-col pb-1">
-                                            <FormControl>
-                                                <RadioGroup
-                                                    aria-labelledby="ratings-radio-buttons-group"
-                                                    onChange={(e) => setRatings(e.target.value)}
-                                                    value={ratings}
-                                                    name="ratings-radio-buttons"
-                                                >
-                                                    {[4, 3, 2, 1].map((el, i) => (
-                                                        <FormControlLabel value={el} key={i} control={<Radio size="small" />} label={<span className="flex items-center text-sm">{el}<StarIcon sx={{ fontSize: "12px", mr: 0.5 }} /> & above</span>} />
-                                                    ))}
-                                                </RadioGroup>
-                                            </FormControl>
+                                    {/* category filter */}
+                                    <div className="flex flex-col border-b px-4">
+
+                                        <div className="flex justify-between cursor-pointer py-2 pb-4 items-center" onClick={() => setCategoryToggle(!categoryToggle)}>
+                                            <p className="font-medium text-xs uppercase">Category</p>
+                                            {categoryToggle ?
+                                                <ExpandLessIcon sx={{ fontSize: "20px" }} /> :
+                                                <ExpandMoreIcon sx={{ fontSize: "20px" }} />
+                                            }
                                         </div>
-                                    )}
+
+                                        {categoryToggle && (
+                                            <div className="flex flex-col pb-1">
+                                                <FormControl>
+                                                    <RadioGroup
+                                                        sx={{
+                                                            display: 'flex',
+                                                            flexDirection: { xs: 'row', sm: 'column' }
+                                                        }}
+                                                        aria-labelledby="category-radio-buttons-group"
+                                                        onChange={(e) => setCategory(e.target.value)}
+                                                        name="category-radio-buttons"
+                                                        value={category}
+                                                    >
+                                                        {categories.map((el, i) => (
+                                                            <FormControlLabel value={el} control={<Radio size="small" />} label={<span className="text-sm" key={i}>{el}</span>} />
+                                                        ))}
+                                                    </RadioGroup>
+                                                </FormControl>
+                                            </div>
+                                        )}
+
+                                    </div>
+                                    {/* category filter */}
+
+                                    {/* ratings filter */}
+                                    <div className="flex flex-col border-b px-4">
+
+                                        <div className="flex justify-between cursor-pointer py-2 pb-4 items-center" onClick={() => setRatingsToggle(!ratingsToggle)}>
+                                            <p className="font-medium text-xs uppercase">ratings</p>
+                                            {ratingsToggle ?
+                                                <ExpandLessIcon sx={{ fontSize: "20px" }} /> :
+                                                <ExpandMoreIcon sx={{ fontSize: "20px" }} />
+                                            }
+                                        </div>
+
+                                        {ratingsToggle && (
+                                            <div className="flex flex-col pb-1">
+                                                <FormControl>
+                                                    <RadioGroup
+                                                        sx={{
+                                                            display: 'flex',
+                                                            flexDirection: { xs: 'row', sm: 'column' }
+                                                        }}
+                                                        aria-labelledby="ratings-radio-buttons-group"
+                                                        onChange={(e) => setRatings(e.target.value)}
+                                                        value={ratings}
+                                                        name="ratings-radio-buttons"
+                                                    >
+                                                        {[4, 3, 2, 1].map((el, i) => (
+                                                            <FormControlLabel value={el} key={i} control={<Radio size="small" />} label={<span className="flex items-center text-sm">{el}<StarIcon sx={{ fontSize: "12px", mr: 0.5 }} /> & above</span>} />
+                                                        ))}
+                                                    </RadioGroup>
+                                                </FormControl>
+                                            </div>
+                                        )}
+
+                                    </div>
+                                    {/* ratings filter */}
 
                                 </div>
-                                {/* ratings filter */}
 
                             </div>
+                            {/* <!-- nav tiles --> */}
 
                         </div>
-                        {/* <!-- nav tiles --> */}
-
-                    </div>
+                    )}
                     {/* <!-- sidebar column  --> */}
 
                     {/* <!-- search column --> */}
@@ -190,8 +210,8 @@ const Products = () => {
 
                                 <div className="grid grid-cols-2 sm:grid-cols-4 w-full place-content-start overflow-hidden pb-4 border-b">
                                     {products?.map((product) => (
-                                            <Product {...product} key={product._id} />
-                                        ))
+                                        <Product {...product} key={product._id} />
+                                    ))
                                     }
                                 </div>
                                 {filteredProductsCount > resultPerPage && (
