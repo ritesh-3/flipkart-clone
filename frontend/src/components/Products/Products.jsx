@@ -70,10 +70,10 @@ const Products = () => {
             <main className="w-full ">
 
                 {/* <!-- row --> */}
-                <div>
+                <div className='flex flex-col sm:flex-row'>
                     {
                         window.innerWidth < 468 && (
-                            <button className='text-blue-600 m-4' onClick={() => setToggleFilter(!toggleFilter)}>
+                            <button className='text-primary-blue m-4' onClick={() => setToggleFilter(!toggleFilter)}>
                                 <span className='text-lg mx-3 font-bold'>Filter</span>
                                 {toggleFilter ? <FilterListOffIcon sx={{ fontSize: '30px' }} /> : <FilterListIcon sx={{ fontSize: '30px' }} />} 
                             </button>
